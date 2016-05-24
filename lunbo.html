@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		#main{
+			width: 760px;
+			height: 300px;
+			margin: 50px auto;
+			position: relative;
+		}
+		#pic{
+			width: 760px;
+			height: 300px;
+			overflow: hidden;
+		}
+		#pic li{
+			width: 760px;
+			height: 300px;
+		}
+		#pic .img1{
+			position: absolute;
+			left: -760px;
+			top: 0;
+			display: none;
+		}
+		#pic .img2{
+			position: absolute;
+			left: -20px;
+			top: 0;
+			display: none;
+		}
+		#main li{
+			list-style: none;
+		}
+		#nav{
+			position: absolute;
+			top: 270px;
+			left: 600px;
+		}
+		#nav li{
+			float: left;
+			border: 1px solid #fff;
+			height: 18px;
+			width: 18px;
+			margin-left: 5px;
+		}
+		.bian{
+			background: #fff;
+		}
+	</style>
+	<script src="JS/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var index=0;
+			$("#pic li").eq(index).find(".img1").animate({left:0},500,function(){
+				var img2=$("#pic li").find(".img2");
+				img2.css("display","block");
+				img2.animate({left:0},500)
+			});
+			//点击转到对应的大图
+			$("#nav li").click(function(){
+				$(this).addClass("bian").siblings().removeClass("bian");
+				
+			})
+		})
+	</script>
+	<body>
+		<div id="main">
+			<ul id="pic">
+				<li style="background: url(img/bg1.jpg);">
+					<img src="img/con1.png" class="img1"/>
+					<img src="img/text1.png" class="img2"/>
+				</li>
+				<li style="background: url(img/bg2.jpg);">
+					<img src="img/con2.png" class="img1"/>
+					<img src="img/text2.png" class="img2"/>
+				</li>
+				<li style="background: url(img/bg3.jpg);">
+					<img src="img/con3.png" class="img1"/>
+					<img src="img/text3.png" class="img2"/>
+				</li>
+				<li style="background: url(img/bg4.jpg);">
+					<img src="img/con4.png" class="img1"/>
+					<img src="img/text4.png" class="img2"/>
+				</li>
+				<li style="background: url(img/bg5.jpg);">
+					<img src="img/con5.png" class="img1"/>
+					<img src="img/text5.png" class="img2"/>
+				</li>
+			</ul>
+			<ul id="nav">
+				<li class="bian"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			
+		</div>
+	</body>
+</html>
